@@ -2,23 +2,21 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-/**
- * @extends Factory<Category>
- */
 class CategoryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
+        $active = rand(0, 1);
+        $title = 'Тестовая категория ' . rand(1, 10000000);
+        $slug = Str::slug($title);
+
         return [
-            //
+            'slug' => $slug,
+            'title' => $title,
+            'active' => $active
         ];
     }
 }
