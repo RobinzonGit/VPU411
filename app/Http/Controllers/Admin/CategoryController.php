@@ -40,12 +40,10 @@ public function store(Request $request)
 {
     $validated = $request->validate([
         'title'     => ['required', 'string', 'max:255'],
-        'slug'      => ['required', 'string', 'max:255', 'unique:categories,slug'],
         'parent_id' => ['nullable', 'integer', 'exists:categories,id'],
         'active'    => ['boolean'],
     ]);
 
-    // Чекбокс приходит как "1" или отсутствует вовсе
     $validated['active'] = $request->boolean('active');
 
     Category::create($validated);
@@ -84,8 +82,6 @@ public function store(Request $request)
 {
     $validated = $request->validate([
         'title'     => ['required', 'string', 'max:255'],
-        'slug'      => ['required', 'string', 'max:255',
-                        Rule::unique('categories', 'slug')->ignore($category->id)],
         'parent_id' => ['nullable', 'integer', 'exists:categories,id',
                         Rule::notIn([$category->id])],
         'active'    => ['boolean'],
