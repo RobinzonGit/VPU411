@@ -221,15 +221,133 @@
                     </li>
                 </ul>
 
-                <!-- Кнопки входа и регистрации -->
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-outline-light btn-sm px-3">
-                        <i class="fas fa-sign-in-alt me-1"></i>Вход
-                    </a>
-                    <a href="#" class="btn btn-primary btn-sm px-3">
-                        <i class="fas fa-user-plus me-1"></i>Регистрация
-                    </a>
-                </div>
+                @auth
+                    <!-- Dropdown профиля -->
+                    <div class="dropdown profile-dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <div class="avatar-circle">
+                                @if(auth()->user()->avatar)
+                                    <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
+                                @else
+                                    <span>{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span>
+                                @endif
+                            </div>
+                            <span class="d-none d-lg-inline text-white fw-500">
+                {{ auth()->user()->name }}
+            </span>
+                            <i class="fas fa-chevron-down ms-1" style="font-size: 0.7rem;"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end profile-menu">
+                            <!-- Шапка дропдауна -->
+                            <li class="profile-header">
+                                <div class="d-flex align-items-center gap-3 p-3">
+                                    <div class="avatar-circle avatar-lg">
+                                        @if(auth()->user()->avatar)
+                                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
+                                        @else
+                                            <span>{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <div class="fw-bold text-truncate">{{ auth()->user()->name }}</div>
+                                        <small class="text-muted text-truncate d-block">{{ auth()->user()->email }}</small>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li><hr class="dropdown-divider my-1"></li>
+
+                            <!-- Мой профиль -->
+                            <li>
+                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Мой профиль</span>
+                                </a>
+                            </li>
+
+                            <!-- Мои заказы -->
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <span>Мои заказы</span>
+                                    <span class="badge bg-danger rounded-pill ms-auto">3</span>
+                                </a>
+                            </li>
+
+                            <!-- Избранное -->
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Избранное</span>
+                                </a>
+                            </li>
+
+                            <!-- Корзина -->
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Корзина</span>
+                                </a>
+                            </li>
+
+                            <li><hr class="dropdown-divider my-1"></li>
+
+                            <!-- Настройки -->
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Настройки</span>
+                                </a>
+                            </li>
+
+                            <!-- Безопасность -->
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Безопасность</span>
+                                </a>
+                            </li>
+
+                            <!-- Админ-панель (только для админа) -->
+                            @if(auth()->user()->is_admin ?? false)
+                                <li>
+                                    <a class="dropdown-item text-warning" href="#">
+                                        <i class="fas fa-user-shield"></i>
+                                        <span>Админ-панель</span>
+                                    </a>
+                                </li>
+                            @endif
+
+                            <li><hr class="dropdown-divider my-1"></li>
+
+                            <!-- Выход -->
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}" class="m-0">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-danger logout-btn">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Выйти из аккаунта</span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <!-- Кнопки входа и регистрации -->
+                    <div class="d-flex gap-2">
+                        <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm px-3">
+                            <i class="fas fa-sign-in-alt me-1"></i>Вход
+                        </a>
+                        <a href="{{ route('register') }}" class="btn btn-primary btn-sm px-3">
+                            <i class="fas fa-user-plus me-1"></i>Регистрация
+                        </a>
+                    </div>
+                @endauth
             </div>
         </div>
     </nav>
