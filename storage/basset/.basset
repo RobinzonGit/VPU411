@@ -316,5 +316,65 @@
         "asset_path": "/home/ruslan/\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0438/Projects/VPU411/vendor/backpack/basset/tests/Helpers/basset-test.js",
         "asset_disk_path": "basset/vendor/backpack/basset/tests/Helpers/basset-test.js",
         "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/img/spinner.svg": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/libs/jquery.mjs.nestedSortable2.js": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/libs/jquery.mjs.nestedSortable2.js",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/libs/jquery.mjs.nestedSortable2.js",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/libs/jquery.mjs.nestedSortable2.js",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/js/common.js": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/js/common.js",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/js/common.js",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/js/common.js",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/css/common.css": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/css/common.css",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/crud/src/resources/assets/css/common.css",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/css/common.css",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/js/tabler.js": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/style.css": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/style.css",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/style.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/style.css",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/glass.css": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/glass.css",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/glass.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/glass.css",
+        "asset_attributes": []
+    },
+    "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/fuzzy-background.css": {
+        "asset_name": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/fuzzy-background.css",
+        "asset_path": "D:\\Academi TOP\\PROJECT_PHP\\VPU411\\vendor/backpack/theme-tabler/resources/assets/css/skins/fuzzy-background.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/fuzzy-background.css",
+        "asset_attributes": []
     }
 }
