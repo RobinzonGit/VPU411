@@ -100,7 +100,7 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="hidden" value="hack">
                                     {{-- Имя --}}
                                     <div class="mb-3">
                                         <label for="name" class="form-label fw-semibold">Имя</label>

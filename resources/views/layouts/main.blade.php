@@ -23,6 +23,96 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        /* ===== УВЕДОМЛЕНИЯ ===== */
+        .notification-toast {
+            min-width: 350px;
+            max-width: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            color: #fff;
+            animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            backdrop-filter: blur(10px);
+        }
+
+        .notification-toast .toast-body {
+            padding: 1rem 0.75rem 1rem 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .notification-toast .toast-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            min-width: 60px;
+            font-size: 1.5rem;
+        }
+
+        .notification-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .notification-error {
+            background: linear-gradient(135deg, #e94560 0%, #c73652 100%);
+        }
+
+        .notification-warning {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+            color: #333;
+        }
+
+        .notification-warning .btn-close {
+            filter: invert(1) grayscale(100%) brightness(0);
+        }
+
+        .notification-info {
+            background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+        }
+
+        /* Прогресс-бар */
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            transform-origin: left;
+            animation: progressBar 5s linear forwards;
+        }
+
+        .notification-warning .toast-progress {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes progressBar {
+            from { transform: scaleX(1); }
+            to { transform: scaleX(0); }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Адаптив */
+        @media (max-width: 575.98px) {
+            .notification-toast {
+                min-width: auto;
+                max-width: 100%;
+            }
+            .toast-container {
+                width: 100%;
+                padding: 0.75rem !important;
+            }
+        }
         .main-content {
             flex: 1;
         }
@@ -158,6 +248,12 @@
                 margin-top: 0;
             }
         }
+
+        .avatar-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -231,7 +327,7 @@
                            aria-expanded="false">
                             <div class="avatar-circle">
                                 @if(auth()->user()->avatar)
-                                    <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
+                                    <img class="avatar-image" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
                                 @else
                                     <span>{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span>
                                 @endif
@@ -248,7 +344,7 @@
                                 <div class="d-flex align-items-center gap-3 p-3">
                                     <div class="avatar-circle avatar-lg">
                                         @if(auth()->user()->avatar)
-                                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
+                                            <img class="avatar-image" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
                                         @else
                                             <span>{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span>
                                         @endif
@@ -352,6 +448,98 @@
         </div>
     </nav>
 </header>
+
+<!-- УВЕДОМЛЕНИЯ -->
+@if(session('success') || session('error') || session('warning') || session('info'))
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999; margin-top: 80px;">
+        @if(session('success'))
+            <div class="toast align-items-center border-0 shadow-lg notification-toast notification-success" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="5000">
+                <div class="d-flex">
+                    <div class="toast-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="toast-body">
+                        <strong class="d-block mb-1">Успешно!</strong>
+                        {{ session('success') }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                </div>
+                <div class="toast-progress"></div>
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="toast align-items-center border-0 shadow-lg notification-toast notification-error" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="6000">
+                <div class="d-flex">
+                    <div class="toast-icon">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="toast-body">
+                        <strong class="d-block mb-1">Ошибка!</strong>
+                        {{ session('error') }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                </div>
+                <div class="toast-progress"></div>
+            </div>
+        @endif
+
+        @if(session('warning'))
+            <div class="toast align-items-center border-0 shadow-lg notification-toast notification-warning" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="5000">
+                <div class="d-flex">
+                    <div class="toast-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="toast-body">
+                        <strong class="d-block mb-1">Внимание!</strong>
+                        {{ session('warning') }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                </div>
+                <div class="toast-progress"></div>
+            </div>
+        @endif
+
+        @if(session('info'))
+            <div class="toast align-items-center border-0 shadow-lg notification-toast notification-info" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="5000">
+                <div class="d-flex">
+                    <div class="toast-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="toast-body">
+                        <strong class="d-block mb-1">Информация</strong>
+                        {{ session('info') }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                </div>
+                <div class="toast-progress"></div>
+            </div>
+        @endif
+    </div>
+@endif
+
+<!-- Ошибки валидации -->
+@if($errors->any())
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999; margin-top: 80px;">
+        <div class="toast align-items-center border-0 shadow-lg notification-toast notification-error" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="8000">
+            <div class="d-flex">
+                <div class="toast-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="toast-body">
+                    <strong class="d-block mb-2">Исправьте следующие ошибки:</strong>
+                    <ul class="mb-0 ps-3">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-progress"></div>
+        </div>
+    </div>
+@endif
 
 <!-- Хлебные крошки (опционально) -->
 @if (isset($breadcrumbs) && count($breadcrumbs) > 0)
@@ -470,6 +658,36 @@
                     if (menu) {
                         menu.classList.remove('show');
                     }
+                });
+            });
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ===== ИНИЦИАЛИЗАЦИЯ УВЕДОМЛЕНИЙ =====
+        const toastElements = document.querySelectorAll('.notification-toast');
+        toastElements.forEach(function(toastEl) {
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+
+            // Удаляем элемент из DOM после скрытия
+            toastEl.addEventListener('hidden.bs.toast', function() {
+                toastEl.remove();
+            });
+        });
+
+        // ===== ПОДМЕНЮ ПРИ НАВЕДЕНИИ (десктоп) =====
+        if (window.innerWidth > 991) {
+            const dropdowns = document.querySelectorAll('.dropdown-submenu');
+            dropdowns.forEach(function(dropdown) {
+                dropdown.addEventListener('mouseenter', function() {
+                    const menu = this.querySelector('.dropdown-menu');
+                    if (menu) menu.classList.add('show');
+                });
+                dropdown.addEventListener('mouseleave', function() {
+                    const menu = this.querySelector('.dropdown-menu');
+                    if (menu) menu.classList.remove('show');
                 });
             });
         }
