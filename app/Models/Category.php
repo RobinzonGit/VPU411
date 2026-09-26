@@ -2,6 +2,7 @@
 
     namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
     use Illuminate\Database\Eloquent\Attributes\Fillable;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@
     #[Fillable('parent_id', 'slug', 'title', 'active')]
     class Category extends Model
     {
+    use CrudTrait;
         use HasFactory;
 
         public function parent(): BelongsTo
