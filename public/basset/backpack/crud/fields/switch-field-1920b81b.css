@@ -1,0 +1,8 @@
+.switch-input:checked+.switch-slider {
+    background-color: var(--bg-switch-checked-color, black);
+}
+.form-switch .form-check-input:checked {
+    background-color: var(--bg-switch-checked-color, black);
+}
+
+    

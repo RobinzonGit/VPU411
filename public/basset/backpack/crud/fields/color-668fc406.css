@@ -1,0 +1,11 @@
+[bp-field-type="color"] input[type="color"] {
+    background-color: unset;
+    border: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+[bp-field-type="color"] .input-group-text {
+    padding: 0 0.4rem;
+}
+
+    

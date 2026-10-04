@@ -1,0 +1,394 @@
+/**
+    This file includes styles to help apply a skin color on top of Tabler's default
+    and it ensures all css color variables declared in "./colors.css" are applied correctly,
+    particularly for dark mode.
+*/
+
+[data-bs-theme=dark] ::placeholder {
+    color: rgba(var(--tblr-light-text), 0.5) !important;
+}
+
+[data-bs-theme=dark] ul.pagination li.paginate_button.page-item.active a.page-link {
+    color: var(--tblr-light) !important;
+}
+
+[data-bs-theme=dark] .select2-selection--multiple input:not(:focus) {
+    color: rgba(var(--tblr-light-text), 0.5) !important;
+}
+
+/*cards*/
+[data-bs-theme=dark] .card-body {
+    box-shadow: inset 0 calc(-1 * var(--tblr-navbar-border-width)) 0 0 var(--tblr-light-border-subtle) !important;
+}
+
+[data-bs-theme=dark] .card {
+    border-color: var(--tblr-light-border-subtle);
+}
+
+[data-bs-theme=dark] .card-header,
+[data-bs-theme=dark] .card-footer {
+    background: var(--tblr-bg-surface);
+    border-color: var(--tblr-light-border-subtle) !important;
+}
+
+.card-footer a:hover .text-primary {
+    text-decoration: underline;
+    text-decoration-color: var(--tblr-primary);
+}
+
+.card-footer a:hover .text-secondary {
+    text-decoration: underline;
+    text-decoration-color: var(--tblr-secondary);
+}
+
+.card-footer a:hover .text-success {
+    text-decoration: underline;
+    text-decoration-color: var(--tblr-success);
+}
+
+.card-footer a:hover .text-danger {
+    text-decoration: underline;
+    text-decoration-color: var(--tblr-danger);
+}
+
+.card-footer a:hover .text-warning {
+    text-decoration: underline;
+    text-decoration-color: var(--tblr-warning);
+}
+
+.card-footer a:hover .text-info {
+    text-decoration: underline;
+    text-decoration-color: var(--tblr-info);
+}
+
+.progress {
+    background-color: var(--tblr-light-border-subtle) !important;
+}
+
+/*inputs*/
+[data-bs-theme=dark] input[type=checkbox]:not(:checked).form-check-input {
+    background-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] input[type=checkbox]:not(:checked).form-check-input::after {
+    background-color: var(--tblr-bg-surface);
+}
+
+[data-bs-theme=dark] input[type=checkbox]:checked.form-check-input {
+    background-color: var(--tblr-primary);
+    border-color: var(--tblr-primary);
+}
+
+[data-bs-theme=dark] input:not(input[type=hidden]).form-control:not(:disabled),
+[data-bs-theme=dark] textarea.form-control:not(:disabled),
+[data-bs-theme=dark] select.form-control:not(:disabled),
+[data-bs-theme=dark] select.form-select:not(:disabled) {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-primary-border-subtle);
+    color: rgba(var(--tblr-body-color-rgb), 0.5);
+}
+
+/* Disabled form controls in dark mode - subtle background shift to match light-mode feel */
+[data-bs-theme=dark] .form-control:disabled,
+[data-bs-theme=dark] .form-select:disabled,
+[data-bs-theme=dark] select:disabled {
+    background-color: var(--bp-form-disabled-bg);
+    color: var(--bp-form-disabled-color);
+}
+
+[data-bs-theme=dark] .form-check-input:disabled {
+    opacity: var(--bp-form-check-disabled-opacity);
+}
+
+[data-bs-theme=dark] .form-check-input:disabled ~ .form-check-label,
+[data-bs-theme=dark] .form-check-input[disabled] ~ .form-check-label {
+    opacity: var(--bp-form-check-label-disabled-opacity);
+}
+
+[data-bs-theme=dark] input[type=date].form-control::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+}
+
+html[data-bs-theme=dark] {
+    --bp-select2-container-border-color: var(--tblr-primary-border-subtle);
+    --bp-select2-focus-bg: transparent;
+    --bp-select2-focus-border-color: var(--tblr-primary);
+    --bp-select2-focus-box-shadow: none;
+    --bp-select2-focus-color: rgba(var(--tblr-light-text), 0.5);
+    --bp-select2-dropdown-bg: var(--tblr-dark);
+    --bp-select2-dropdown-border-color: var(--tblr-border-color);
+    --bp-select2-option-color: var(--tblr-body-color);
+    --bp-select2-option-selected-bg: var(--tblr-gray-800);
+    --bp-select2-option-selected-color: var(--tblr-primary);
+    --bp-select2-option-disabled-color: var(--tblr-muted);
+    --bp-select2-search-bg: var(--tblr-bg-surface);
+    --bp-select2-search-color: rgba(var(--tblr-light-text), 0.5);
+    --bp-select2-rendered-color: rgba(var(--tblr-light-text), 0.5);
+    --bp-select2-placeholder-color: var(--tblr-muted);
+    --bp-select2-choice-color: var(--tblr-bg-surface);
+    --bp-select2-choice-border-color: var(--tblr-primary-border-subtle);
+    --bp-select2-selection-border-color: var(--tblr-primary-border-subtle);
+    --select2-selected-item-background: var(--tblr-primary);
+    --select2-selected-item-color: #fff;
+
+    /* Disabled form controls */
+    --bp-form-disabled-bg: rgba(var(--tblr-body-color-rgb), 0.06);
+    --bp-form-disabled-color: rgba(var(--tblr-body-color-rgb), 0.3);
+    --bp-form-check-disabled-opacity: 0.5;
+    --bp-form-check-label-disabled-opacity: 0.6;
+
+    --bp-tinymce-content-bg: #221e26;
+    --bp-tinymce-content-color: #c9c1d6;
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-dropdown {
+    background-color: var(--bp-select2-dropdown-bg);
+    border-color: var(--bp-select2-dropdown-border-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-results__option {
+    color: var(--bp-select2-option-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-results__option[aria-selected=true] {
+    background-color: var(--bp-select2-option-selected-bg);
+    color: var(--bp-select2-option-selected-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--select2-selected-item-background);
+    color: var(--select2-selected-item-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-results__option[aria-disabled=true] {
+    color: var(--bp-select2-option-disabled-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-search--dropdown .select2-search__field {
+    background-color: var(--bp-select2-search-bg);
+    color: var(--bp-select2-search-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+    color: var(--bp-select2-rendered-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-selection__placeholder {
+    color: var(--bp-select2-placeholder-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
+    color: var(--bp-select2-choice-color);
+    border-color: var(--bp-select2-choice-border-color);
+}
+
+[data-bs-theme=dark] .select2-container--bootstrap .select2-selection {
+    border-color: var(--bp-select2-selection-border-color);
+}
+
+[data-bs-theme=dark] form .select2.select2-container {
+    border-color: var(--bp-select2-container-border-color);
+}
+
+[data-bs-theme=dark] form .select2.select2-container.select2-container--focus,
+[data-bs-theme=dark] form .select2.select2-container.select2-container--open {
+    background-color: var(--bp-select2-focus-bg);
+    border-color: var(--bp-select2-focus-border-color);
+    box-shadow: var(--bp-select2-focus-box-shadow);
+    color: var(--bp-select2-focus-color);
+}
+
+[data-bs-theme=dark] :not(.navbar-filters) .select2-selection--single {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] :not(.navbar-filters) .select2-selection--multiple {
+    background-color: var(--tblr-bg-surface) !important;
+    border-color: var(--tblr-bg-surface) !important;
+}
+
+[data-bs-theme=dark] :not(.navbar-filters) .select2-container--open {
+    box-shadow: none !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+[data-bs-theme=dark] select[multiple]:focus option:checked {
+    background: var(--tblr-primary) linear-gradient(0deg, var(--tblr-primary) 0%, var(--tblr-primary) 100%);
+}
+
+[data-bs-theme=dark] .input-group button.popup_selector,
+[data-bs-theme=dark] .input-group button.clear_elfinder_picker {
+    background-color: var(--tblr-bg-surface) !important;
+    border-color: var(--tblr-primary-border-subtle) !important;
+    color: var(--tblr-dark-text);
+}
+
+[data-bs-theme=dark] .input-group button.popup_selector:hover,
+[data-bs-theme=dark] .input-group button.clear_elfinder_picker:hover {
+    background-color: var(--tblr-dark-rgb) !important;
+    color: var(--tblr-light-text);
+}
+
+/*phone*/
+[data-bs-theme=dark] .dial-code {
+    color: red !important;
+}
+
+/*ckeditor*/
+[data-bs-theme=dark] .cke_top, span.cke_button_label.cke_button__source_label {
+    background-color: var(--tblr-bg-surface) !important;
+}
+
+[data-bs-theme=dark] span.cke_button_icon,
+[data-bs-theme=dark] span.cke_combo_arrow {
+    filter: invert(1) !important;
+}
+
+[data-bs-theme=dark] span.cke_button_label,
+[data-bs-theme=dark] span.cke_combo_text {
+    color: var(--tblr-light-text) !important;
+}
+
+[data-bs-theme=dark] .cke_chrome {
+    border: none;
+}
+
+[data-bs-theme=dark] span.cke_combo_text {
+    color: var(--tblr-light-text) !important;
+}
+
+/*filters*/
+[data-bs-theme=dark] .navbar-filters ul.select2-selection__rendered {
+    background-color: var(--tblr-gray) !important;
+    box-shadow: 0 0 3px var(--tblr-primary) !important;
+}
+
+[data-bs-theme=dark] .navbar-filters .select2-selection--multiple {
+    background-color: var(--tblr-gray-800) !important;
+    color: var(--tblr-light) !important;
+}
+
+[data-bs-theme=dark] table.table.table-striped > tbody > tr:nth-of-type(even) > * {
+    --tblr-table-accent-bg: var(--tblr-bg-surface);
+}
+
+#crudTable_wrapper .table-striped > tbody > tr:nth-of-type(odd) > * {
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.03);
+}
+
+[data-bs-theme=dark] header.top div.navbar-collapse div.navbar {
+    background-color: var(--tblr-bg-surface);
+}
+
+[data-bs-theme=dark] .form-selectgroup-check {
+    background-color: var(--tblr-bg-surface);
+}
+
+[data-bs-theme=dark] span.input-group-text {
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+/* Summernote editor dark mode */
+[data-bs-theme=dark] .note-editor.note-frame {
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] .note-editor .note-toolbar {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] .note-editor .note-btn {
+    color: var(--tblr-body-color);
+    background-color: transparent;
+    border-color: var(--tblr-border-color-translucent);
+}
+
+[data-bs-theme=dark] .note-editor .note-btn:hover,
+[data-bs-theme=dark] .note-editor .note-btn:focus {
+    color: var(--tblr-body-color);
+    background-color: var(--tblr-bg-surface-secondary);
+}
+
+[data-bs-theme=dark] .note-editor .note-btn.active,
+[data-bs-theme=dark] .note-editor .note-btn:active {
+    color: var(--tblr-light);
+    background-color: var(--tblr-primary);
+    border-color: var(--tblr-primary);
+}
+
+[data-bs-theme=dark] .note-editor .note-editing-area {
+    background-color: var(--tblr-bg-surface);
+}
+
+[data-bs-theme=dark] .note-editor .note-statusbar {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] .note-editor .note-status-output {
+    color: var(--tblr-body-color);
+}
+
+[data-bs-theme=dark] .note-dropdown-menu {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-border-color-translucent);
+}
+
+[data-bs-theme=dark] .note-dropdown-item {
+    color: var(--tblr-body-color);
+}
+
+[data-bs-theme=dark] .note-dropdown-item:hover {
+    background-color: var(--tblr-bg-surface-secondary);
+    color: var(--tblr-body-color);
+}
+
+[data-bs-theme=dark] .note-editor .note-modal-content {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-border-color-translucent);
+}
+
+[data-bs-theme=dark] .note-editor .note-modal-header {
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] .note-editor .note-modal-footer {
+    border-color: var(--tblr-primary-border-subtle);
+}
+
+[data-bs-theme=dark] .note-editor .note-modal-title {
+    color: var(--tblr-body-color);
+}
+
+[data-bs-theme=dark] .note-editor .note-form-label {
+    color: var(--tblr-body-color);
+}
+
+[data-bs-theme=dark] .note-editor .note-input {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-primary-border-subtle);
+    color: var(--tblr-body-color);
+}
+
+[data-bs-theme=dark] .note-editor .note-input:focus {
+    background-color: var(--tblr-bg-surface);
+    border-color: var(--tblr-primary);
+}
+
+[data-bs-theme=dark] .note-editor .note-editable {
+    color: var(--tblr-body-color);
+    background-color: var(--tblr-bg-surface);
+}
+
+/* Summernote disabled state in dark mode */
+[data-bs-theme=dark] .note-editor.bp-disabled .note-editing-area {
+    opacity: 0.5;
+}
+
+/* TinyMCE disabled state in dark mode */
+[data-bs-theme=dark] .tox-tinymce.bp-disabled .tox-edit-area {
+    opacity: 0.5;
+}
